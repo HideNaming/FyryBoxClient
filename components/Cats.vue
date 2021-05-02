@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="cats">
-      <div class="container">
         <div class="cats-left">
           <h1>{{$t('box')['cats_title']}}</h1>
           <div class="cats-list">
@@ -29,7 +28,6 @@
               :count="3"
             ></b-skeleton>
           </div>
-        </div>
       </div>
     </div>
     <div class="boxes">
