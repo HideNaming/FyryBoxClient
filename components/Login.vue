@@ -3,10 +3,10 @@
     <div class="columns form-content">
       <div class="column">
         <a class="change" @click="registerModal"
-          >{{$t('auth')['register']}} <b-icon icon="account"></b-icon
+          >{{ $t("auth")["register"] }} <b-icon icon="account"></b-icon
         ></a>
         <div class="left-content">
-          <h3>{{$t('auth')['auth']}}</h3>
+          <h3>{{ $t("auth")["auth"] }}</h3>
           <ValidationObserver v-slot="{ invalid }">
             <form>
               <ValidationProvider
@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="column right-content">
-        <h3>{{$t('auth')['social_title']}}</h3>
+        <h3>{{ $t("auth")["social_title"] }}</h3>
         <SocialLogin />
       </div>
     </div>
@@ -88,22 +88,31 @@ export default {
     async login() {
       this.error = null;
       this.loading = true;
-
       await this.$auth
-        .loginWith("laravelJWT", { data: this.form })
+        .loginWith("laravelJWT", {
+          data: {
+            ...this.form,
+          },
+        })
         .then(() => {
-          this.$parent.avatar = process.env.API_URL + "/api/v1/avatar/" + this.$auth.user.id + '?' + this.$auth.user.updated_at;
           this.$buefy.toast.open({
-            message: this.$t('auth')['success_login'],
+            message: this.$t("auth")["success_login"],
             type: "is-success",
           });
           this.$emit("close");
         })
         .catch((e) => {
-          this.$buefy.toast.open({
-            message: this.$t('auth')['error_login'],
-            type: "is-danger",
-          });
+          if (e.response.errror == "Unauthorized") {
+            this.$buefy.toast.open({
+              message: this.$t("auth")["error_login"],
+              type: "is-danger",
+            });
+          } else {
+            this.$buefy.toast.open({
+              message: this.$t("auth")["error_login_2"],
+              type: "is-danger",
+            });
+          }
           this.loading = false;
         });
     },

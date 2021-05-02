@@ -3,10 +3,10 @@
     <div class="columns form-content">
       <div class="column">
         <a class="change" @click="loginModal"
-          >{{ $t('auth')['login'] }} <b-icon icon="account"></b-icon
+          >{{ $t("auth")["login"] }} <b-icon icon="account"></b-icon
         ></a>
         <div class="left-content">
-          <h3>{{ $t('auth')['register'] }}</h3>
+          <h3>{{ $t("auth")["register"] }}</h3>
           <ValidationObserver v-slot="{ invalid }" ref="formValidator">
             <form>
               <ValidationProvider
@@ -76,8 +76,8 @@
         </div>
       </div>
       <div class="column right-content">
-        <h3>{{$t('auth')['social_title']}}</h3>
-        <p>{{$t('auth')['social_desc']}}</p>
+        <h3>{{ $t("auth")["social_title"] }}</h3>
+        <p>{{ $t("auth")["social_desc"] }}</p>
         <SocialLogin />
       </div>
     </div>
@@ -108,26 +108,35 @@ export default {
     async register() {
       this.error = null;
       this.loading = true;
-
-      await this.$axios
-        .$post("/api/v1/auth/register", {
-          ...this.form,
-          password_confirmation: this.form.password,
-        })
-        .then(() => {
-          this.$auth.loginWith("laravelJWT", { data: this.form }).then(() => {
-            this.$buefy.toast.open({
-              message: this.$t('auth')['success_register'],
-              type: "is-success",
+      try {
+        await this.$axios
+          .$post("/api/v1/auth/register", {
+            ...this.form,
+            password_confirmation: this.form.password,
+            recaptha: token,
+          })
+          .then(() => {
+            this.$auth.loginWith("laravelJWT", { data: this.form }).then(() => {
+              this.$buefy.toast.open({
+                message: this.$t("auth")["success_register"],
+                type: "is-success",
+              });
+              this.$parent.avatar =
+                process.env.API_URL +
+                "/api/v1/avatar/" +
+                this.$auth.user.id +
+                "?" +
+                this.$auth.user.updated_at;
+              this.$emit("close");
             });
-            this.$parent.avatar = process.env.API_URL + "/api/v1/avatar/" + this.$auth.user.id + '?' + this.$auth.user.updated_at;
-            this.$emit("close");
+          })
+          .catch((e) => {
+            this.$refs.formValidator.setErrors(e.response.data.errors);
+            this.loading = false;
           });
-        })
-        .catch((e) => {
-          this.$refs.formValidator.setErrors(e.response.data.errors);
-          this.loading = false;
-        });
+      } catch (error) {
+        console.log("Login error:", error);
+      }
     },
     loginModal() {
       this.$emit("close");

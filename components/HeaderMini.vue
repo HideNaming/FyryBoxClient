@@ -32,7 +32,7 @@
                 <template #trigger>
                   <div class="mini-profile">
                     <div
-                      :style="{ 'background-image': 'url(' + avatar + ')' }"
+                      :style="{ 'background-image': 'url(' + `${backend}/api/v1/avatar/${$auth.user.id}?${$auth.user.updated_at}` + ')' }"
                       class="img"
                     ></div>
                     <div class="content">
@@ -115,18 +115,8 @@ import Garantii from "~/components/Garantii";
 export default {
   data() {
     return {
-      avatar: null,
+      backend: process.env.API_URL,
     };
-  },
-  mounted() {
-    if (this.$auth.loggedIn) {
-      this.avatar =
-        process.env.API_URL +
-        "/api/v1/avatar/" +
-        this.$auth.user.id +
-        "?" +
-        this.$auth.user.updated_at;
-    }
   },
   methods: {
     Garantii() {

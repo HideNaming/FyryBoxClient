@@ -47,6 +47,7 @@ export default {
     'nuxt-buefy',
     '@nuxtjs/dotenv',
     'nuxt-socket-io',
+    //'@nuxtjs/recaptcha',
     'vue-scrollto/nuxt',
     ['@mole-inc/nuxt-validate', {
       lang: 'ru',
@@ -77,7 +78,6 @@ export default {
   ],
 
   io: {
-    // module options
     sockets: [{
       name: 'main',
       url: process.env.WEBSOCKET_HOST
@@ -87,6 +87,11 @@ export default {
   axios: {
     baseURL: process.env.API_URL,
   },
+
+  /*recaptcha: {
+    siteKey: process.env.RECAPTCHA_SITEKEY,
+    version: 3,
+  },*/
 
   auth: {
     plugins: [{ src: '~/plugins/axios', ssr: true }, '~/plugins/auth'],
@@ -126,7 +131,6 @@ export default {
     extend(config, { isClient }) {
       if (isClient) {
         config.performance.hints = false;
-        //config.optimization.minimize = false;
       }
     },
   },

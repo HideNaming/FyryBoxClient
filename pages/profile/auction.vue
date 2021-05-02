@@ -7,7 +7,7 @@
           <div class="block">
             <div class="content">
               <div
-                v-bind:style="{ 'background-image': 'url(' + avatar + ')' }"
+                v-bind:style="{ 'background-image': 'url(' + `${backend}/api/v1/avatar/${$auth.user.id}?${$auth.user.updated_at}` + ')' }"
                 class="avatar"
               >
                 <div class="upload">
@@ -94,12 +94,7 @@ export default {
   },
   data() {
     return {
-      avatar:
-        process.env.API_URL +
-        "/api/v1/avatar/" +
-        this.$auth.user.id +
-        "?" +
-        this.$auth.user.updated_at,
+      backend: process.env.API_URL,
       loading: false,
       data: [],
       checkedRows: [],
@@ -127,22 +122,6 @@ export default {
           (async () => {
             await this.$auth.fetchUser();
             this.loading1 = false;
-            this.avatar =
-              process.env.API_URL +
-              "/api/v1/avatar/" +
-              this.$auth.user.id +
-              "?" +
-              this.$auth.user.updated_at;
-            this.$children.forEach((value, index) => {
-              if (value.$options._componentTag == "HeaderMini") {
-                this.$children[index].avatar =
-                  process.env.API_URL +
-                  "/api/v1/avatar/" +
-                  this.$auth.user.id +
-                  "?" +
-                  this.$auth.user.updated_at;
-              }
-            });
             this.$buefy.toast.open({
               message: this.$t("profile")["avatar_success"],
               type: "is-success",

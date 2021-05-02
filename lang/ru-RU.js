@@ -141,6 +141,7 @@ export default {
         steam: 'Вход через Steam',
         success_login: 'Вы успешно авторизованны',
         error_login: 'Неверный логин или пароль',
+        error_login_2: 'Слишком много попыток, подождите пару минут',
         success_register: 'Ваша учетная запись была успешно создана!',
         success_logout: 'Вы вышли из системы!',
         login: 'Войти',
