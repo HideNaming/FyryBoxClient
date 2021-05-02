@@ -161,7 +161,7 @@
       <b-loading
         :is-full-page="true"
         v-model="loading"
-        :can-cancel="true"
+        :can-cancel="false"
       ></b-loading>
     </div>
   </section>

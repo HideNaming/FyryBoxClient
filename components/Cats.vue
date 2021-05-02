@@ -31,7 +31,6 @@
       </div>
     </div>
     <div class="boxes">
-      <b-loading :is-full-page="false" v-model="preLoading"></b-loading>
       <div
         v-for="item in sortBoxes"
         :key="item.id"
@@ -52,6 +51,11 @@
         </div>
       </div>
     </div>
+    <b-loading
+        :is-full-page="true"
+        v-model="preLoading"
+        :can-cancel="false"
+      ></b-loading>
   </div>
 </template>
 

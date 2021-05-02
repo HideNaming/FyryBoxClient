@@ -2,7 +2,6 @@
   <section>
     <HeaderMini />
     <div class="box-window">
-      <b-loading :is-full-page="false" v-model="preLoading"></b-loading>
       <div class="header">
         <div class="title">{{ $t("box")["boxes"][box.name] }}</div>
         <div class="columns info">
@@ -191,6 +190,11 @@
         </div>
       </div>
     </div>
+    <b-loading
+        :is-full-page="true"
+        v-model="preLoading"
+        :can-cancel="false"
+      ></b-loading>
   </section>
 </template>
 

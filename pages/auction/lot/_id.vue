@@ -156,7 +156,7 @@
     <b-loading
       :is-full-page="true"
       v-model="preLoading"
-      :can-cancel="true"
+      :can-cancel="false"
     ></b-loading>
   </section>
 </template>

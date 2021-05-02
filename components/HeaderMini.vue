@@ -28,7 +28,6 @@
               <b-dropdown
                 v-if="$auth.loggedIn"
                 position="is-bottom-left"
-                :triggers="['hover']"
               >
                 <template #trigger>
                   <div class="mini-profile">
