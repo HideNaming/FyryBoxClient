@@ -80,7 +80,7 @@ export default {
     // module options
     sockets: [{
       name: 'main',
-      url: 'http://localhost:6001'
+      url: process.env.WEBSOCKET_HOST
     }]
   },
 
