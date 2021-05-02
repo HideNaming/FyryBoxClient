@@ -10,7 +10,7 @@
               :class="[null === filterCategory ? 'active' : '']"
               @click="filter(null)"
             >
-              <img src="~assets/icons/all.svg" /><br />
+              <img src="/icons/all.svg" /><br />
               <span>{{$t('box')['cats']['all']}}</span>
             </div>
             <div

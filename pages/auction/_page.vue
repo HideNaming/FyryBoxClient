@@ -44,7 +44,7 @@
                   <div class="timer-frame">
                     <div class="head">{{ $t("auction")["finished"] }}:</div>
                     <div class="timer">
-                      <img src="~assets/icons/watch.svg" />
+                      <img src="/icons/watch.svg" />
                       <vac :end-time="Number(list.finished) * 1000">
                         <template v-slot:process="{ timeObj }">
                           <span
@@ -119,7 +119,7 @@
                   <div class="timer-frame">
                     <div class="head">{{ $t("auction")["finished"] }}:</div>
                     <div class="timer">
-                      <img src="~assets/icons/watch.svg" />
+                      <img src="/icons/watch.svg" />
                       <vac :end-time="Number(list.finished) * 1000">
                         <template v-slot:process="{ timeObj }">
                           <span

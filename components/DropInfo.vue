@@ -14,7 +14,7 @@
         <p class="title">{{ $parent.$parent.info.name }}</p>
         <div class="price">{{$t('global')['cost']}}: {{ $parent.$parent.info.price }} {{$t('global')['currency']}}</div>
         <div class="stock">
-          <img src="~assets/icons/stock_green.svg" />{{$t('box')['stock']}}
+          <img src="/icons/stock_green.svg" />{{$t('box')['stock']}}
         </div>
         <ul class="text">
           <li v-for="item in $parent.$parent.info.detail.split(/\r?\n/)">

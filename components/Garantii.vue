@@ -6,25 +6,25 @@
       <div class="g-card">
         <div class="amount">25000+</div>
         <div class="info">{{ $t("garantii")["delivery_slogan"] }}</div>
-        <img class="icon track" src="~assets/icons/truck-big.svg" />
+        <img class="icon track" src="/icons/truck-big.svg" />
       </div>
       <div class="g-card">
         <div class="amount">10000+</div>
         <div class="info">
           {{ $t("garantii")["otzivi_slogan"] }}
         </div>
-        <img class="icon piple" src="~assets/icons/piple-big.svg" />
+        <img class="icon piple" src="/icons/piple-big.svg" />
       </div>
       <div class="g-card">
         <div class="amount">100000+</div>
         <div class="info">{{ $t("garantii")["box_slogan"] }}</div>
-        <img class="icon gift" src="~assets/icons/giftbox.svg" />
+        <img class="icon gift" src="/icons/giftbox.svg" />
       </div>
       <div class="g-card">
         <div class="new">new</div>
         <div class="amount">5000+</div>
         <div class="info">{{ $t("garantii")["auction_slogan"] }}</div>
-        <img class="icon piple" src="~assets/icons/trade.svg" />
+        <img class="icon piple" src="/icons/trade.svg" />
       </div>
     </div>
     <div class="mini-cards">

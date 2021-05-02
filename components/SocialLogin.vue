@@ -1,15 +1,15 @@
 <template>
   <div class="social-group">
     <div class="vk" @click="socialLogin('vkontakte')">
-      <div class="icon"><img src="~assets/icons/vk_white.svg" /></div>
+      <div class="icon"><img src="/icons/vk_white.svg" /></div>
       <span>{{ $t('auth')['vk'] }}</span>
     </div>
     <div class="steam" @click="socialLogin('steam')">
-      <div class="icon"><img src="~assets/icons/steam.svg" /></div>
+      <div class="icon"><img src="/icons/steam.svg" /></div>
       <span>{{ $t('auth')['steam'] }}</span>
     </div>
     <div class="discord" @click="socialLogin('discord')">
-      <div class="icon"><img src="~assets/icons/discord.svg" /></div>
+      <div class="icon"><img src="/icons/discord.svg" /></div>
       <span>{{ $t('auth')['discord'] }}</span>
     </div>
   </div>

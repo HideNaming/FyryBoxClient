@@ -19,7 +19,7 @@
               <div class="timer-frame">
                 <div class="name">Бонус действителен</div>
                 <div class="timer">
-                  <img src="~assets/icons/watch.svg" />
+                  <img src="/icons/watch.svg" />
                   <vac
                     :end-time="
                       new Date($auth.user.created_at).getTime() + 43200000

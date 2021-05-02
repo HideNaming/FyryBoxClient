@@ -7,7 +7,7 @@
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
               <img
                 class="brand-logo"
-                src="~assets/images/logo.png"
+                src="/images/logo.png"
                 alt="FurryBox"
               />
             </b-navbar-item>
@@ -41,19 +41,19 @@
                 >
                   <NuxtLink to="/profile">
                     <div class="link">
-                      <img src="~assets/icons/settings.svg" />
+                      <img src="/icons/settings.svg" />
                       <span>{{$t('menu')['profile']}}</span>
                     </div>
                     </NuxtLink>
                     <NuxtLink to="/profile/auction">
                     <div class="link">
-                      <img src="~assets/icons/auction.svg" />
+                      <img src="/icons/auction.svg" />
                       <span>{{ $t("menu")["auction"] }}</span>
                     </div>
                     </NuxtLink>
                     <NuxtLink to="/profile/delivery">
                     <div class="link">
-                      <img src="~assets/icons/delivery.svg" />
+                      <img src="/icons/delivery.svg" />
                       <span>{{$t('menu')['delivery']}}</span>
                     </div>
                     </NuxtLink>
@@ -66,7 +66,7 @@
                     </div>
                   </NuxtLink>
                   <div class="link" @click="logout()">
-                    <img src="~assets/icons/logout.svg" />
+                    <img src="/icons/logout.svg" />
                     <span>{{$t('menu')['logout']}}</span>
                   </div>
                 </b-dropdown-item>
@@ -78,7 +78,7 @@
                   :label="$t('auth')['auth']"
                 />
               </b-navbar-item>
-              <!--img class="icon" src="~assets/icons/lang.svg" /-->
+              <!--img class="icon" src="/icons/lang.svg" /-->
             </div>
           </template>
         </b-navbar>
@@ -89,9 +89,9 @@
             <div class="column is-half">
               <div class="content-frame">
                 <div class="media-player">
-                  <img src="~assets/icons/play.svg" class="play" />
+                  <img src="/icons/play.svg" class="play" />
                   <img
-                    src="~assets/images/header-image.png"
+                    src="/images/header-image.png"
                     class="header-image is-hidden-touch"
                   />
                 </div>
@@ -107,7 +107,7 @@
                 </div>
                 <div class="statistic is-hidden-touch">
                   <div class="block">
-                    <img src="~assets/icons/bag.svg" />
+                    <img src="/icons/bag.svg" />
                     <div>
                       <b><animated-number
                           :value="stats.award"
@@ -118,7 +118,7 @@
                     </div>
                   </div>
                   <div class="block">
-                    <img src="~assets/icons/users.svg" />
+                    <img src="/icons/users.svg" />
                     <div>
                       <b
                         ><animated-number

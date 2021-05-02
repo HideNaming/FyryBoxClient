@@ -7,7 +7,7 @@
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
               <img
                 class="brand-logo"
-                src="~assets/images/logo.png"
+                src="/images/logo.png"
                 alt="FurryBox"
               />
             </b-navbar-item>
@@ -62,19 +62,19 @@
                 >
                   <NuxtLink to="/profile">
                     <div class="link">
-                      <img src="~assets/icons/settings.svg" />
+                      <img src="/icons/settings.svg" />
                       <span>{{ $t("menu")["profile"] }}</span>
                     </div>
                   </NuxtLink>
                   <NuxtLink to="/profile/auction">
                     <div class="link">
-                      <img src="~assets/icons/auction.svg" />
+                      <img src="/icons/auction.svg" />
                       <span>{{ $t("menu")["auction"] }}</span>
                     </div>
                     </NuxtLink>
                   <NuxtLink to="/profile/delivery">
                     <div class="link">
-                      <img src="~assets/icons/delivery.svg" />
+                      <img src="/icons/delivery.svg" />
                       <span>{{ $t("menu")["delivery"] }}</span>
                     </div>
                   </NuxtLink>
@@ -87,7 +87,7 @@
                     </div>
                   </NuxtLink>
                   <div class="link" @click="logout()">
-                    <img src="~assets/icons/logout.svg" />
+                    <img src="/icons/logout.svg" />
                     <span>{{ $t("menu")["logout"] }}</span>
                   </div>
                 </b-dropdown-item>
@@ -99,7 +99,7 @@
                   :label="$t('auth')['auth']"
                 />
               </b-navbar-item>
-              <!--img class="icon" src="~assets/icons/lang.svg" /-->
+              <!--img class="icon" src="/icons/lang.svg" /-->
             </div>
           </template>
         </b-navbar>

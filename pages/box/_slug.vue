@@ -7,7 +7,7 @@
         <div class="columns info">
           <div class="column left">
             <div class="stats">
-              <img src="~assets/icons/eye.svg" />
+              <img src="/icons/eye.svg" />
               <span
                 ><b
                   ><animated-number
@@ -24,7 +24,7 @@
           </div>
           <div class="column right">
             <div class="stats">
-              <img src="~assets/icons/money-bag.svg" />
+              <img src="/icons/money-bag.svg" />
               <span
                 ><b
                   ><animated-number
@@ -156,12 +156,12 @@
                   change = 3;
                   changeItem = item.id;
                 "
-                src="~assets/icons/plus.svg"
+                src="/icons/plus.svg"
               />
             </b-tooltip>
             <div @click="infoModal(index)">
               <span v-if="Boolean(item.stock) !== false" class="stock"
-                ><img src="~assets/icons/stock.svg" />
+                ><img src="/icons/stock.svg" />
                 {{ $t("box")["stock"] }}</span
               >
               <img class="img" :src="backend + '/images/' + item.image" />

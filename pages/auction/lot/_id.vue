@@ -24,7 +24,7 @@
               <h2>{{ lot.loot.name }}</h2>
               <div class="result">{{ $t("auction")["finished"] }}:</div>
               <div class="timer">
-                <img src="~assets/icons/watch.svg" />
+                <img src="/icons/watch.svg" />
                 <no-ssr>
                   <vac
                     v-if="lot.finished"

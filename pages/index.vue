@@ -1,10 +1,9 @@
 <template>
   <div>
     <Header />
-    <Feed />
     <Cats />
     <div class="delivery">
-      <img src="~assets/icons/truck.svg" />
+      <img src="/icons/truck.svg" />
       <span
         >{{ $t("main")["delivery_desc_1"] }}
         <span class="orange">{{ $t("main")["delivery_desc_2"] }}</span></span
@@ -17,7 +16,7 @@
           <div class="comments">
             <div class="content" id="comments">
               <div class="comment-wrapper">
-                <img class="avatar" src="~assets/images/avatar.svg" />
+                <img class="avatar" src="/images/avatar.svg" />
                 <div class="comment">
                   <div class="name">Милан Васильев | 3 дня назад</div>
                   <div class="text">спасибки вам)</div>
@@ -25,7 +24,7 @@
                 </div>
               </div>
               <div class="comment-wrapper">
-                <img class="avatar" src="~assets/images/avatar.svg" />
+                <img class="avatar" src="/images/avatar.svg" />
                 <div class="comment">
                   <div class="name">Дина Емельянова | 3 дня назад</div>
                   <div class="text">все пришло спасибо xD</div>
@@ -33,7 +32,7 @@
                 </div>
               </div>
               <div class="comment-wrapper">
-                <img class="avatar" src="~assets/avatars/3.jpg" />
+                <img class="avatar" src="/avatars/3.jpg" />
                 <div class="comment">
                   <div class="name">Алёна Лебедева | 2 дня назад</div>
                   <div class="text">Отличный сайт</div>
@@ -41,17 +40,17 @@
                 </div>
               </div>
               <div class="comment-wrapper">
-                <img class="avatar" src="~assets/images/avatar.svg" />
+                <img class="avatar" src="/images/avatar.svg" />
                 <div class="comment">
                   <div class="name">Руслан Молчанов | 2 дня назад</div>
                   <div class="text">спасибки вам)</div>
                   <div class="media">
-                    <img src="~assets/media/2.jpg" />
+                    <img src="/media/2.jpg" />
                   </div>
                 </div>
               </div>
               <div class="comment-wrapper">
-                <img class="avatar" src="~assets/avatars/2.jpg" />
+                <img class="avatar" src="/avatars/2.jpg" />
                 <div class="comment">
                   <div class="name">Захар Суворов | 2 дня назад</div>
                   <div class="text">Сайт клёвый</div>
@@ -59,19 +58,19 @@
                 </div>
               </div>
               <div class="comment-wrapper">
-                <img class="avatar" src="~assets/images/avatar.svg" />
+                <img class="avatar" src="/images/avatar.svg" />
                 <div class="comment">
                   <div class="name">Абрам Васильев | День назад</div>
                   <div class="text">
                     Это лучший сайт!!!!! Доставили за 10 дней!!
                   </div>
                   <div class="media">
-                    <img src="~assets/media/iphone.jpg" />
+                    <img src="/media/iphone.jpg" />
                   </div>
                 </div>
               </div>
               <div class="comment-wrapper">
-                <img class="avatar" src="~assets/images/avatar.svg" />
+                <img class="avatar" src="/images/avatar.svg" />
                 <div class="comment">
                   <div class="name">Гаврил Сысоев | 8 часов назад</div>
                   <div class="text">я согласен, прикольный сайт</div>
@@ -79,7 +78,7 @@
                 </div>
               </div>
               <div class="comment-wrapper">
-                <img class="avatar" src="~assets/avatars/1.jpg" />
+                <img class="avatar" src="/avatars/1.jpg" />
                 <div class="comment">
                   <div class="name">Dahlia Veum | 3 часа назад</div>
                   <div class="text">
@@ -139,12 +138,10 @@
 <script>
 import Vue from "vue";
 import Header from "~/components/Header";
-import Feed from "~/components/Feed";
 import Cats from "~/components/Cats";
 
 export default Vue.extend({
   components: {
-    Feed,
     Header,
     Cats,
   },

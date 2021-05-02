@@ -4,12 +4,12 @@
       <div class="container">
         <h4>{{$t('footer')['payment']}}</h4>
         <div class="payments">
-          <div><img src="~assets/images/master-card.png" /></div>
-          <div><img src="~assets/images/visa.png" /></div>
-          <div><img src="~assets/images/qiwi.png" /></div>
-          <div><img src="~assets/images/yandex.png" /></div>
-          <div><img src="~assets/images/mobile.png" /></div>
-          <div><img src="~assets/images/free-kassa.png" /></div>
+          <div><img src="/images/master-card.png" /></div>
+          <div><img src="/images/visa.png" /></div>
+          <div><img src="/images/qiwi.png" /></div>
+          <div><img src="/images/yandex.png" /></div>
+          <div><img src="/images/mobile.png" /></div>
+          <div><img src="/images/free-kassa.png" /></div>
         </div>
         <div class="columns content">
           <div class="column is-three-fifths cats-left">
@@ -21,7 +21,7 @@
           </div>
           <div class="column">
             <div class="social">
-              <a href="#"><img src="~assets/icons/vk.svg" /></a>
+              <a href="#"><img src="/icons/vk.svg" /></a>
             </div>
           </div>
         </div>
