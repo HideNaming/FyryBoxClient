@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card modal-auth">
     <div class="columns form-content">
       <div class="column">
         <a class="change" @click="loginModal"
