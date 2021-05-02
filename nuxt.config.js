@@ -117,7 +117,8 @@ export default {
   },
 
   router: {
-    prefetchLinks: false
+    prefetchLinks: false,
+    prefetchPayloads: false
   },
 
 
