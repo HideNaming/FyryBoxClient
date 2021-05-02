@@ -117,6 +117,12 @@ export default {
 
 
   build: {
+    vendor: ["jquery"],
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: "jquery"
+      })
+    ],
     extend(config, { isClient }) {
       if (isClient) {
         config.performance.hints = false;
