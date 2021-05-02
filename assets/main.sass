@@ -250,6 +250,7 @@ a
             position: relative
             .media-player
                 width: 440px
+                max-width: 100%
                 height: 230px
                 background: radial-gradient(50% 50% at 50% 50%, #2B2B2B 0%, #1A1A1A 100%), #1A1A1A
                 background-image: url(~assets/images/preview.png)
@@ -394,11 +395,12 @@ a
         .cats-list
             display: flex
             flex-wrap: wrap
-            justify-content: center
+            justify-content: space-around
             margin-top: 20px
             .block
                 width: 100px
-                margin-left: 20px
+                margin-left: 5px
+                margin-right: 5px
                 height: 100px
                 background: #1A1A1A
                 border: 4px solid rgba(255, 255, 255, 0.16)
@@ -453,9 +455,11 @@ a
         transition-duration: .3s
         text-align: center
         @media screen and (max-width: 600px)
-            width: 160px
-            min-width: 160px
+            width: 145px
+            min-width: 145px
             height: 230px
+            margin-left: 5px
+            margin-right: 5px
         &:hover
             img
                 transform: scale(1.05)
@@ -538,7 +542,7 @@ a
                 display: flex
                 justify-content: center
                 @media screen and (max-width: 600px)
-                    width: 160px
+                    width: 145px
                     height: 40px
                     margin-top: 5px
                 &:hover,
