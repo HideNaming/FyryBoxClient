@@ -118,7 +118,8 @@ export default {
 
   router: {
     prefetchLinks: false,
-    prefetchPayloads: false
+    prefetchPayloads: false,
+    linkActiveClass: 'active-route'
   },
 
 
