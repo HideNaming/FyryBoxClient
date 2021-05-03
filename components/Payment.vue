@@ -166,7 +166,7 @@ export default {
           if (
             new Date(this.$auth.user.created_at).getTime() + 43200000 >=
               new Date().getTime() &&
-            this.$auth.user.payments.lenght == 0
+            this.$auth.user.orders.length == 0
           ) {
             bonus_percent += 0.2;
           }
