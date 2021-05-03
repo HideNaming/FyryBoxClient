@@ -8,7 +8,7 @@
             class="first-bonus"
             v-if="
               new Date($auth.user.created_at).getTime() + 43200000 >=
-                new Date().getTime() && this.$auth.user.payments.lenght == 0
+                new Date().getTime() && $auth.user.orders.length == 0
             "
           >
             <div class="info">
