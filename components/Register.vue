@@ -113,7 +113,6 @@ export default {
           .$post("/api/v1/auth/register", {
             ...this.form,
             password_confirmation: this.form.password,
-            recaptha: token,
           })
           .then(() => {
             this.$auth.loginWith("laravelJWT", { data: this.form }).then(() => {
