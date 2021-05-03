@@ -20,7 +20,7 @@
                   :message="errors"
                 >
                   <b-input
-                    :placeholder="$t('auth')['email_placeholder']"
+                    :placeholder="$t('fields')['email_placeholder']"
                     type="email"
                     name="email"
                     v-model="form.email"
@@ -38,7 +38,7 @@
                   :message="errors"
                 >
                   <b-input
-                    :placeholder="$t('auth')['password_placeholder']"
+                    :placeholder="$t('fields')['password_placeholder']"
                     type="password"
                     v-model="form.password"
                     name="password"
