@@ -160,7 +160,7 @@ export default {
         .$post("/api/v1/payment", {
           amount: this.payment,
           partner: process.env.PARTNER_URL,
-          code: code
+          code: this.code
         })
         .then((response) => {
           this.$router.push("/payment/" + response);
