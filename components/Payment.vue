@@ -136,6 +136,11 @@ export default {
       ],
     };
   },
+  watch: {
+    $route(to, from) {
+      this.$emit("close");
+    },
+  },
   methods: {
     async paymentMethod() {
       this.loading = true;
@@ -146,10 +151,7 @@ export default {
           partner: process.env.PARTNER,
         })
         .then((response) => {
-          this.loading = false;
-          //window.location.replace(response);
-          this.$router.push('/payment/'+response);
-          this.$emit('close');
+          this.$router.push("/payment/" + response);
         })
         .catch(() => {
           this.loading = false;
