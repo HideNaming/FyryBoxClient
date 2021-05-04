@@ -147,7 +147,9 @@ export default {
         })
         .then((response) => {
           this.loading = false;
-          window.location.replace(response);
+          //window.location.replace(response);
+          this.$router.push('/payment/'+response);
+          this.$emit('close');
         })
         .catch(() => {
           this.loading = false;
