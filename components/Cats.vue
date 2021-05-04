@@ -1,61 +1,61 @@
 <template>
   <div>
     <div class="cats">
-        <div class="cats-left">
-          <h1>{{$t('box')['cats_title']}}</h1>
-          <div class="cats-list">
-            <div
-              v-if="!preLoading"
-              class="block"
-              :class="[null === filterCategory ? 'active' : '']"
-              @click="filter(null)"
-            >
-              <img src="/icons/all.svg" /><br />
-              <span>{{$t('box')['cats']['all']}}</span>
-            </div>
-            <div
-              class="block"
-              v-for="item in categories"
-              :key="item.id"
-              :class="[item.id === filterCategory ? 'active' : '']"
-              @click="filter(item.id)"
-            >
-              <img :src="backend + '/images/' + item.image" /><br />
-              <span>{{$t('box')['cats'][item.name]}}</span>
-            </div>
-            <b-skeleton
-              v-if="preLoading"
-              :count="3"
-            ></b-skeleton>
+      <div class="cats-left">
+        <h1>{{ $t("box")["cats_title"] }}</h1>
+        <div class="cats-list">
+          <div
+            v-if="!preLoading"
+            class="block"
+            :class="[null === filterCategory ? 'active' : '']"
+            @click="filter(null)"
+          >
+            <img src="/icons/all.svg" /><br />
+            <span>{{ $t("box")["cats"]["all"] }}</span>
           </div>
+          <div
+            class="block"
+            v-for="item in categories"
+            :key="item.name"
+            :class="[item.id === filterCategory ? 'active' : '']"
+            @click="filter(item.id)"
+          >
+            <img :src="backend + '/images/' + item.image" /><br />
+            <span>{{ $t("box")["cats"][item.name] }}</span>
+          </div>
+          <b-skeleton v-if="preLoading" :count="3"></b-skeleton>
+        </div>
       </div>
     </div>
     <div class="boxes">
       <div
-        v-for="item in sortBoxes"
-        :key="item.id"
+        v-for="(item, index) in sortBoxes"
+        :key="item.name"
         :class="'box ' + item.category_id"
       >
         <span v-if="item.sale > 0" class="sale">-{{ item.sale }}%</span>
         <img :src="backend + '/images/' + item.image" />
         <div class="info">
-          <b>{{ $t('box')['boxes'][item.name] }}</b
+          <b>{{ $t("box")["boxes"][item.name] }}</b
           ><br />
           <span>
-            <b>{{ item.price - (item.price * item.sale) / 100 }}</b> {{$t('global')['currency']}}
-            <sup v-if="item.sale > 0">{{ item.price }} {{$t('global')['currency']}}</sup>
+            <b>{{ item.price - (item.price * item.sale) / 100 }}</b>
+            {{ $t("global")["currency"] }}
+            <sup v-if="item.sale > 0"
+              >{{ item.price }} {{ $t("global")["currency"] }}</sup
+            >
           </span>
           <nuxt-link :to="'/box/' + item.slug" no-prefetch>
-            <div class="action">{{$t('box')['open']}}</div>
+            <div class="action">{{ $t("box")["open"] }}</div>
           </nuxt-link>
         </div>
       </div>
     </div>
     <b-loading
-        :is-full-page="true"
-        v-model="preLoading"
-        :can-cancel="false"
-      ></b-loading>
+      :is-full-page="true"
+      v-model="preLoading"
+      :can-cancel="false"
+    ></b-loading>
   </div>
 </template>
 
@@ -85,8 +85,8 @@ export default {
     this.boxes = this.sortBoxes = await this.$http.$get("/api/v1/boxes/");
     this.categories = await this.$http.$get("/api/v1/categories/");
     this.preLoading = false;
-    if (this.$route.query.otzivi == 'true') {
-      this.$scrollTo('#comments_otzivi')
+    if (this.$route.query.otzivi == "true") {
+      this.$scrollTo("#comments_otzivi");
     }
   },
   fetchOnServer: true,

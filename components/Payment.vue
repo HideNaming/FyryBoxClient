@@ -67,9 +67,10 @@
           </div>
           <div class="bonuses">
             <div
-              v-for="bonus in bonuses"
+              v-for="(bonus, index) in bonuses"
               class="bonus"
               :key="bonus.input"
+              :class="[bonus_active == index ? 'active' : '']"
               @click="
                 payment = bonus.input;
                 calculate_event();
@@ -79,15 +80,23 @@
               <div class="percent">+{{ bonus.bonus }}%</div>
             </div>
           </div>
-          <div class="action">
-            <b-button
-              class="button is-primary"
-              @click="paymentMethod()"
-              :disabled="invalid"
-              :loading="loading"
-              label="Пополнить"
-            />
-          </div>
+          <form>
+            <div class="action">
+              <b-field>
+                <b-input
+                  v-model="code"
+                  placeholder="Бонусный купон (если есть)"
+                ></b-input>
+              </b-field>
+              <b-button
+                class="button is-primary"
+                @click="paymentMethod()"
+                :disabled="invalid"
+                :loading="loading"
+                label="Пополнить"
+              />
+            </div>
+          </form>
         </ValidationObserver>
       </div>
     </div>
@@ -107,7 +116,9 @@ export default {
         all: 0,
         bonus: 0,
       },
+      code: null,
       loading: false,
+      bonus_active: null,
       bonuses: [
         {
           input: 300,
@@ -148,7 +159,8 @@ export default {
       await this.$axios
         .$post("/api/v1/payment", {
           amount: this.payment,
-          partner: process.env.PARTNER,
+          partner: process.env.PARTNER_URL,
+          code: code
         })
         .then((response) => {
           this.$router.push("/payment/" + response);
@@ -164,8 +176,12 @@ export default {
       setTimeout(async () => {
         const isValid = await this.$refs.observer.validate();
         if (isValid) {
-          this.bonuses.forEach((value) => {
-            if (this.payment >= value.input) bonus_percent = value.bonus / 100;
+          this.bonus_active = null;
+          this.bonuses.forEach((value, index) => {
+            if (this.payment >= value.input) {
+              bonus_percent = value.bonus / 100;
+              this.bonus_active = index;
+            }
           });
           if (
             new Date(this.$auth.user.created_at).getTime() + 43200000 >=

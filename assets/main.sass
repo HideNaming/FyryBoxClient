@@ -1860,7 +1860,22 @@ h3
         @media screen and (max-width: 600px)
             padding: 10px
         .action
-            text-align: center
+            display: flex
+            align-items: center
+            justify-content: center
+            margin-top: 10px
+            margin-bottom: 20px
+            flex-wrap: wrap
+            .button 
+                margin-top: 0
+                width: auto
+            .field
+                margin-bottom: 0
+                margin-right: 20px
+                min-width: 300px
+                @media screen and (max-width: 600px)
+                    margin-right: 0
+                    margin-bottom: 10px
         .bonuses
             display: flex
             margin-top: 30px
@@ -1880,6 +1895,9 @@ h3
                 font-size: 20px
                 transition-duration: .2s
                 cursor: pointer
+                @media screen and (max-width: 600px)
+                    width: 120px
+                    font-size: 15px
                 .percent
                     position: absolute
                     transform: translate(+50%, 0)
@@ -1891,9 +1909,13 @@ h3
                     color: #000000
                     padding: 2px 10px
                     font-size: 18px
+                    @media screen and (max-width: 600px)
+                        padding: 2px 5px
+                        font-size: 12px
                 &:hover,
+                &.active
                     transform: scale(1.02)
-                    filter: brightness(110%)
+                    filter: brightness(130%)
         .payment-bonus-title
             text-align: left
             text-transform: uppercase
