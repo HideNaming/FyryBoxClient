@@ -253,6 +253,8 @@ export default {
     },
     rollActive() {
       this.paused = true;
+      var mobile = 1;
+      if (window.innerWidth <= 600) mobile = 0.5;
       var drop = $(
         "div.marquee-text-text:nth-child(1) > div:nth-child(1) > div:nth-child(100)"
       ).offset().left;
@@ -264,7 +266,7 @@ export default {
       $(".marquee-text-content").css(
         "transform",
         "translate3d(-" +
-          (drop - arrow + 10 - Math.random() * 15) +
+          (drop - arrow + 10 * mobile - Math.random() * 30 * mobile) +
           "px, 0px, 0px)"
       );
     },
