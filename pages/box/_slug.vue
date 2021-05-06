@@ -264,7 +264,7 @@ export default {
       $(".marquee-text-content").css(
         "transform",
         "translate3d(-" +
-          (drop - arrow + 10 - Math.random() * 30) +
+          (drop - arrow + 10 - Math.random() * 15) +
           "px, 0px, 0px)"
       );
     },
