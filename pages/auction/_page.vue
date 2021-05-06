@@ -3,82 +3,88 @@
     <HeaderMini />
     <div class="container">
       <div class="auction-header"></div>
-      <div class="auction-content">
-        <no-ssr>
-          <h2>{{ $t("auction")["title_1"] }}</h2>
-          <b-carousel-list :data="auction_top" :items-to-show="items">
-            <template #item="list">
-              <div class="auction-lot top">
-                <div class="ac-column">
-                  <div class="title">{{ list.loot.name }}</div>
-                  <div class="price" v-if="list.finish == null">
-                    {{ $t("auction")["price_curnet"] }}:
-                    <i>{{ list.price }} {{ $t("global")["currency"] }}.</i>
-                  </div>
-                  <div class="price" v-else>
-                    {{ $t("auction")["price_finish"] }}:
-                    <i>{{ list.price }} {{ $t("global")["currency"] }}.</i>
-                  </div>
-                  <div class="price-two" v-if="list.finish == null">
-                    {{ $t("auction")["price_start"] }}: {{ list.start }}
-                    {{ $t("global")["currency"] }}.
-                  </div>
-                  <div class="price-two" v-if="list.finish == null">
-                    {{ $t("auction")["price_stap"] }}: {{ list.stap }}
-                    {{ $t("global")["currency"] }}.
-                  </div>
-                  <div class="last_rate">
-                    <div class="info">{{ $t("auction")["last_rate"] }}:</div>
-                    <div v-if="list.rate == null" class="name">
-                      {{ $t("auction")["not_rates"] }}
+    </div>
+    <div class="container-light">
+      <div class="container">
+        <div class="auction-content">
+          <no-ssr>
+            <h2>{{ $t("auction")["title_1"] }}</h2>
+            <b-carousel-list :data="auction_top" :items-to-show="items">
+              <template #item="list">
+                <div class="auction-lot top">
+                  <div class="ac-column">
+                    <div class="title">{{ list.loot.name }}</div>
+                    <div class="price" v-if="list.finish == null">
+                      {{ $t("auction")["price_curnet"] }}:
+                      <i>{{ list.price }} {{ $t("global")["currency"] }}.</i>
                     </div>
-                    <div v-else class="name">{{ list.rate }}</div>
-                  </div>
-                  <nuxt-link :to="'/auction/lot/' + list.id"
-                    ><div class="action">
-                      {{ $t("auction")["more"] }}
-                    </div></nuxt-link
-                  >
-                </div>
-                <div class="ac-column right">
-                  <div class="timer-frame">
-                    <div class="head">{{ $t("auction")["finished"] }}:</div>
-                    <div class="timer">
-                      <img src="/icons/watch.svg" />
-                      <vac :end-time="Number(list.finished) * 1000">
-                        <template v-slot:process="{ timeObj }">
-                          <span
-                            >{{ timeObj.h
-                            }}<i>{{ $t("gloabl")["hour"] }}</i></span
-                          >:<span
-                            >{{ timeObj.m
-                            }}<i>{{ $t("gloabl")["min"] }}</i></span
-                          >:<span
-                            >{{ timeObj.s
-                            }}<i>{{ $t("gloabl")["sec"] }}</i></span
-                          >
-                        </template>
-                        <span class="small" slot="finish">
-                          <template v-if="list.finish == null">{{
-                            $t("auction")["status_process"]
-                          }}</template>
-                          <template v-else>{{
-                            $t("auction")["status_finish"]
-                          }}</template>
-                        </span>
-                      </vac>
+                    <div class="price" v-else>
+                      {{ $t("auction")["price_finish"] }}:
+                      <i>{{ list.price }} {{ $t("global")["currency"] }}.</i>
                     </div>
+                    <div class="price-two" v-if="list.finish == null">
+                      {{ $t("auction")["price_start"] }}: {{ list.start }}
+                      {{ $t("global")["currency"] }}.
+                    </div>
+                    <div class="price-two" v-if="list.finish == null">
+                      {{ $t("auction")["price_stap"] }}: {{ list.stap }}
+                      {{ $t("global")["currency"] }}.
+                    </div>
+                    <div class="last_rate">
+                      <div class="info">{{ $t("auction")["last_rate"] }}:</div>
+                      <div v-if="list.rate == null" class="name">
+                        {{ $t("auction")["not_rates"] }}
+                      </div>
+                      <div v-else class="name">{{ list.rate }}</div>
+                    </div>
+                    <nuxt-link :to="'/auction/lot/' + list.id"
+                      ><div class="action">
+                        {{ $t("auction")["more"] }}
+                      </div></nuxt-link
+                    >
                   </div>
-                  <img
-                    class="image"
-                    :src="backend + '/images/' + list.loot.image"
-                  />
+                  <div class="ac-column right">
+                    <div class="timer-frame">
+                      <div class="head">{{ $t("auction")["finished"] }}:</div>
+                      <div class="timer">
+                        <img src="/icons/watch.svg" />
+                        <vac :end-time="Number(list.finished) * 1000">
+                          <template v-slot:process="{ timeObj }">
+                            <span
+                              >{{ timeObj.h
+                              }}<i>{{ $t("gloabl")["hour"] }}</i></span
+                            >:<span
+                              >{{ timeObj.m
+                              }}<i>{{ $t("gloabl")["min"] }}</i></span
+                            >:<span
+                              >{{ timeObj.s
+                              }}<i>{{ $t("gloabl")["sec"] }}</i></span
+                            >
+                          </template>
+                          <span class="small" slot="finish">
+                            <template v-if="list.finish == null">{{
+                              $t("auction")["status_process"]
+                            }}</template>
+                            <template v-else>{{
+                              $t("auction")["status_finish"]
+                            }}</template>
+                          </span>
+                        </vac>
+                      </div>
+                    </div>
+                    <img
+                      class="image"
+                      :src="backend + '/images/' + list.loot.image"
+                    />
+                  </div>
                 </div>
-              </div>
-            </template>
-          </b-carousel-list>
-        </no-ssr>
+              </template>
+            </b-carousel-list>
+          </no-ssr>
+        </div>
       </div>
+    </div>
+    <div class="container">
       <div class="auction-content" id="auction">
         <h2>{{ $t("auction")["title_2"] }}</h2>
         <div
@@ -116,39 +122,33 @@
             >
           </div>
           <div class="ac-column right">
-                  <div class="timer-frame">
-                    <div class="head">{{ $t("auction")["finished"] }}:</div>
-                    <div class="timer">
-                      <img src="/icons/watch.svg" />
-                      <vac :end-time="Number(list.finished) * 1000">
-                        <template v-slot:process="{ timeObj }">
-                          <span
-                            >{{ timeObj.h
-                            }}<i>{{ $t("gloabl")["hour"] }}</i></span
-                          >:<span
-                            >{{ timeObj.m
-                            }}<i>{{ $t("gloabl")["min"] }}</i></span
-                          >:<span
-                            >{{ timeObj.s
-                            }}<i>{{ $t("gloabl")["sec"] }}</i></span
-                          >
-                        </template>
-                        <span class="small" slot="finish">
-                          <template v-if="list.finish == null">{{
-                            $t("auction")["status_process"]
-                          }}</template>
-                          <template v-else>{{
-                            $t("auction")["status_finish"]
-                          }}</template>
-                        </span>
-                      </vac>
-                    </div>
-                  </div>
-                  <img
-                    class="image"
-                    :src="backend + '/images/' + list.loot.image"
-                  />
-                </div>
+            <div class="timer-frame">
+              <div class="head">{{ $t("auction")["finished"] }}:</div>
+              <div class="timer">
+                <img src="/icons/watch.svg" />
+                <vac :end-time="Number(list.finished) * 1000">
+                  <template v-slot:process="{ timeObj }">
+                    <span
+                      >{{ timeObj.h }}<i>{{ $t("gloabl")["hour"] }}</i></span
+                    >:<span
+                      >{{ timeObj.m }}<i>{{ $t("gloabl")["min"] }}</i></span
+                    >:<span
+                      >{{ timeObj.s }}<i>{{ $t("gloabl")["sec"] }}</i></span
+                    >
+                  </template>
+                  <span class="small" slot="finish">
+                    <template v-if="list.finish == null">{{
+                      $t("auction")["status_process"]
+                    }}</template>
+                    <template v-else>{{
+                      $t("auction")["status_finish"]
+                    }}</template>
+                  </span>
+                </vac>
+              </div>
+            </div>
+            <img class="image" :src="backend + '/images/' + list.loot.image" />
+          </div>
         </div>
       </div>
       <b-pagination
@@ -163,15 +163,66 @@
         v-model="loading"
         :can-cancel="false"
       ></b-loading>
+      <div class="garantii">
+        <h2>Как работает аукцион?</h2>
+            <div class="mini-cards">
+              <div class="mini-card">
+                <div class="title">
+                  <b-icon icon="run-fast" size="is-small"></b-icon>
+                  Как сделать ставку?
+                </div>
+                <div class="info">
+                  Что пресмотрел на аукционе? Чтобы сделать ставку необходимо
+                  авторизоваться, далее вводи сумму выше минимальной и делай
+                  ставку
+                </div>
+              </div>
+              <div class="mini-card">
+                <div class="title">
+                  <b-icon icon="truck-delivery-outline" size="is-small"></b-icon>
+                  Как заказать доставку?
+                </div>
+                <div class="info">
+                  Отслеживать аукционы можно в профиле, в разделе Аукцион. Если
+                  ты что-то выиграешь, товар автоматически добавится в раздел
+                  Доставка.
+                </div>
+              </div>
+              <div class="mini-card">
+                <div class="title">
+                  <b-icon icon="emoticon-wink" size="is-small"></b-icon>
+                  Что если я проиграю?
+                </div>
+                <div class="info">
+                  Если другой пользователь сделает более дорогую ставку, то
+                  деньги автоматически вернутся вам на баланс.
+                </div>
+              </div>
+              <div class="mini-card">
+                <div class="title">
+                  <b-icon icon="information-outline" size="is-small"></b-icon>
+                  Как работает аукцион?
+                </div>
+                <div class="info">Выигрыше коробок, которым не была заказан доставка в течении 30 дней автоматически перемещаются на аукцион?</div>
+              </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
+
+<style lang="sass">
+.container-light
+  background-color: #2B2B2B
+  background-image: url(/images/pattern.svg)
+  padding-bottom: 20px
+</style>
 
 <script>
 export default {
   head() {
     return {
-      title: `${this.$t('menu')['auction']} » ${process.env.PARTNER}`,
+      title: `${this.$t("menu")["auction"]} » ${process.env.PARTNER}`,
     };
   },
   data() {
