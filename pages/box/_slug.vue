@@ -254,7 +254,7 @@ export default {
     rollActive() {
       this.paused = true;
       var mobile = 1;
-      if (window.innerWidth <= 600) mobile = 0;
+      if (window.innerWidth <= 600) mobile = -1;
       var drop = $(
         "div.marquee-text-text:nth-child(1) > div:nth-child(1) > div:nth-child(100)"
       ).offset().left;
