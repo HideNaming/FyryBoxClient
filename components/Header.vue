@@ -88,6 +88,7 @@
           <div class="columns">
             <div class="column is-half">
               <div class="content-frame">
+                <a href="https://vk.com/furybox_ru?w=wall-204398736_68" target="_blank">
                 <div class="media-player">
                   <img src="/icons/play.svg" class="play" />
                   <img
@@ -95,6 +96,7 @@
                     class="header-image is-hidden-touch"
                   />
                 </div>
+                </a>
               </div>
             </div>
             <div class="column">
