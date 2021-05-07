@@ -4,10 +4,10 @@
       <div class="icon"><img src="/icons/vk_white.svg" /></div>
       <span>{{ $t('auth')['vk'] }}</span>
     </div>
-    <div class="steam" @click="socialLogin('steam')">
+    <!--div class="steam" @click="socialLogin('steam')">
       <div class="icon"><img src="/icons/steam.svg" /></div>
       <span>{{ $t('auth')['steam'] }}</span>
-    </div>
+    </div-->
     <div class="discord" @click="socialLogin('discord')">
       <div class="icon"><img src="/icons/discord.svg" /></div>
       <span>{{ $t('auth')['discord'] }}</span>
