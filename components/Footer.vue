@@ -21,7 +21,7 @@
           </div>
           <div class="column">
             <div class="social">
-              <a href="#"><img src="/icons/vk.svg" /></a>
+              <a href="https://vk.com/furybox_ru" target="_blank"><img src="/icons/vk.svg" /></a>
             </div>
           </div>
         </div>
